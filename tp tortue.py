@@ -41,9 +41,10 @@ input()
 """
 #spirale infinie
 '''
-for i in range (0,3600):
-    maTortue.forward(1+i/360)
-    maTortue.left(1)
+def spirale:
+    for i in range (0,3600):
+        maTortue.forward(1+i/360)
+        maTortue.left(1)
 
 input()
 '''
@@ -63,47 +64,30 @@ def pas(maTortue):
 
 
 def marcheAleatoire(maTortue):
-    while 1 :
-        pas(maTortue)
+    pas(maTortue)
 
 #marcheAleatoire(maTortue)
+def marcheATrois(liste):
+    for i in liste:
+        pas(i)
 
-#initialisation de la couleur
-T1=turtle.Turtle()
-T2=turtle.Turtle()
-T3=turtle.Turtle()
-T4=turtle.Turtle()
-T1.color("purple")
-T1.shape("turtle")
-T2.color("lightblue")
-T2.shape("turtle")
-T3.color("grey")
-T3.shape("turtle")
-T4.color("pink")
-T4.shape("turtle")
+liste=[]
+n=4
+for i in range(n):
+    liste.append(turtle.Turtle())
+    
+for i in liste:
+    i.penup()
+    i.goto(random.randint(-100,100),random.randint(-100,100))
+    i.pendown()
+    i.color(random.random(),random.random(),random.random())
+    i.shape("turtle")
 
-#positions aleatoires des tortues
-T1.penup()
-T1.goto(random.randint(-100,100),random.randint(-100,100))
-T1.pendown()
-T2.penup()
-T2.goto(random.randint(-100,100),random.randint(-100,100))
-T2.pendown()
-T3.penup()
-T3.goto(random.randint(-100,100),random.randint(-100,100))
-T3.pendown()
+while 1:
+    marcheATrois(liste)
+    marcheAleatoire(maTortue)
+    
 
-
-def marcheATrois(Tortue1,Tortue2,Tortue3,Tortue4):
-    while 1 : 
-        pas(Tortue1)
-        pas(Tortue2)
-        pas(Tortue3)
-        pas(Tortue4)
-
-
-marcheATrois(T1,T2,T3,T4)
-
-#input()
+input()
 
 
