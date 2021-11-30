@@ -49,7 +49,7 @@ def spirale:
 input()
 '''
 #marche aléatoire
-
+'''
 def pas(maTortue):
     aleatoire = random.randint(0, 3)
 
@@ -89,5 +89,88 @@ while 1:
     
 
 input()
+'''
+#Exercice agar.io
+
+import turtle
+import random
+turtle.speed(0)
+turtle.delay(0)
+#maTortue=turtle.Turtle()
+size=3
+turtle.penup()
+turtle.shapesize(size)
+turtle.shape("turtle")
+turtle.color("pink")
+
+def gauche (tortue):
+    tortue.left(90)
+def droite (tortue):
+    tortue.right(90)
+
+def listortue (n):
+    liste=[]
+    for i in range (0,n):
+        liste.append(turtle.Turtle())
+    return liste
+
+def placr ():
+    for tortue in listofT:
+        tortue.penup()
+        tortue.color(random.random(),random.random(),random.random())
+        tortue.shape("turtle")
+        tortue.goto(random.randint(-300,300),random.randint(-300,300))
+
+def maral (tortue):
+    test = random.randint(1,3)
+    if test == 1:
+        gauche(tortue)
+        tortue.forward(5)
+    elif test ==2:
+        droite(tortue)
+        tortue.forward(5)
+    else:
+        tortue.forward(10)
 
 
+def changeUpPosition():
+    turtle.setheading(90)
+def changeRightPosition():
+    turtle.setheading(0)
+def changeLeftPosition():
+    turtle.setheading(180)
+def changeDownPosition():
+    turtle.setheading(270)
+
+turtle.onkeypress(changeUpPosition,"Up")
+turtle.onkeypress(changeLeftPosition,"Left")
+turtle.onkeypress(changeRightPosition,"Right")
+turtle.onkeypress(changeDownPosition,"Down")
+turtle.listen()
+
+cpt=0
+n=20
+listofT=listortue(n)
+placr()
+cel=1
+
+while 1:
+    turtle.speed(1)
+    turtle.forward(cel)
+    print(turtle.distance(listofT[0]))
+    if cpt%10==0:
+        for i in listofT:
+            maral(i)
+
+    for i in listofT:
+        if turtle.distance(i) < size*7 :
+            i.hideturtle()
+            listofT.remove(i)
+            size +=0.5
+            turtle.shapesize(size)
+            cel=cel*0.9
+    cpt+=1
+
+
+
+input()
